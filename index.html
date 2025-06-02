@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Yoga Bali - Prenatal Yoga & Spa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: #FFFBF5;
+            color: #4E4A47;
+        }
+        h1, h2, h3, .font-lora {
+            font-family: 'Lora', serif;
+        }
+        .active-nav {
+            color: #8A9A5B;
+            font-weight: 600;
+        }
+        .tab-active {
+            background-color: #A3B18A;
+            color: #FFFBF5;
+            border-color: #A3B18A;
+        }
+        .tab-inactive {
+            background-color: transparent;
+            color: #4E4A47;
+            border-color: #D4C6B3;
+        }
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-content {
+            transition: transform 0.25s ease;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+<header id="header" class="bg-[#fefdf9] backdrop-blur-md sticky top-0 z-50 transition-all duration-300 shadow-sm">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <!-- Logo dan Nama -->
+            <a href="#" class="flex items-center space-x-3">
+                <img src="asset/image/logo01.png" alt="Logo Uma Yoga Bali" class="h-12 w-auto">
+                <!-- <span class="text-xl font-bold font-lora text-[#4E4A47]">Uma Yoga Bali</span> -->
+            </a>
+
+            <!-- Navigasi Desktop -->
+          <nav class="hidden md:flex items-center space-x-8">
+  <a href="#home" class="nav-link hover:text-[#8A9A5B] transition-colors duration-300">Home</a>
+  <a href="#philosophy" class="nav-link hover:text-[#8A9A5B] transition-colors duration-300">Filosofi</a>
+  <a href="#programs" class="nav-link hover:text-[#8A9A5B] transition-colors duration-300">Program</a>
+  <a href="#gallery" class="nav-link hover:text-[#8A9A5B] transition-colors duration-300">Galeri</a>
+
+  <!-- Tombol Musik -->
+  <button id="music-button" class="flex items-center text-[#8A9A5B] hover:text-[#4E4A47] transition-colors duration-300 focus:outline-none" title="Putar Musik">
+    <!-- Icon Play -->
+    <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M14.752 11.168l-6.518-3.759A1 1 0 007 8.118v7.764a1 1 0 001.234.97l6.518-1.88a1 1 0 00.748-.97v-1.764a1 1 0 00-.748-.97z" />
+    </svg>
+    <!-- Icon Pause (hidden awal) -->
+    <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6" />
+    </svg>
+  </button>
+  <audio id="music" src="asset/music/Bali World Music, Gus Teja, Morning Happiness - Gus Teja.mp3" loop></audio>
+</nav>
+
+
+            <!-- Tombol Booking Desktop -->
+            <a href="#contact" class="hidden md:inline-block bg-[#A3B18A] text-white px-6 py-2 rounded-full hover:bg-[#8A9A5B] transition-colors duration-300 font-semibold">Booking</a>
+
+            <!-- Tombol Hamburger Mobile -->
+            <button id="mobile-menu-button" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+        <a href="#home" class="block nav-link hover:text-[#8A9A5B] transition-colors duration-300">Home</a>
+        <a href="#philosophy" class="block nav-link hover:text-[#8A9A5B] transition-colors duration-300">Filosofi</a>
+        <a href="#programs" class="block nav-link hover:text-[#8A9A5B] transition-colors duration-300">Program</a>
+        <a href="#gallery" class="block nav-link hover:text-[#8A9A5B] transition-colors duration-300">Galeri</a>
+        <a href="#schedule" class="block nav-link hover:text-[#8A9A5B] transition-colors duration-300">Jadwal</a>
+        <a href="#contact" class="block bg-[#A3B18A] text-white text-center mt-2 px-6 py-2 rounded-full hover:bg-[#8A9A5B] transition-colors duration-300 font-semibold">Booking</a>
+    </div>
+</header>
+
+
+
+    <main>
+        <section id="home" class="relative min-h-screen flex items-center">
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style="background-image: url('');">
+                <img src="" onerror="this.style.display='none'">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#FFFBF5] via-[#FFFBF5]/70 to-transparent z-10"></div>
+            <div class="container mx-auto px-6 text-center relative z-20">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-[#4E4A47] mb-4">Temukan Ketenangan Anda</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto text-[#6a6663]">Sebuah perjalanan prenatal yoga & spa yang dirancang khusus untuk ibu hamil dalam dekapan hangat tradisi Bali.</p>
+                <a href="#programs" class="mt-8 inline-block bg-[#A3B18A] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#8A9A5B] transform hover:scale-105 transition-all duration-300">Jelajahi Program Kami</a>
+            </div>
+        </section>
+
+        <section id="philosophy" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left">
+                        <h2 class="text-3xl md:text-4xl font-bold text-[#4E4A47] mb-6 font-lora">Di sinilah perjalanan indah Anda sebagai seorang ibu dimulai.</h2>
+                        <p class="mb-4 text-[#6a6663]">Di Uma Yoga Bali, kami menyediakan ruang yang aman dan menenangkan khusus untuk Anda, para calon ibu. Kami percaya bahwa masa kehamilan adalah momen sakral yang pantas dirayakan dengan penuh kedamaian.</p>
+                        <p class="text-[#6a6663]">Filosofi kami memadukan kearifan lokal Bali—yang menghargai harmoni antara tubuh, pikiran, dan alam—dengan praktik prenatal modern yang terbukti efektif untuk mendukung kesehatan fisik dan ketenangan jiwa Anda selama masa kehamilan.</p>
+                    </div>
+                    <div>
+                        <img src="asset/image/airlangga.png">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="benefits" class="bg-[#F6F3EE] py-20">
+             <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold mb-2 font-lora">Pengalaman Holistik Anda</h3>
+                <p class="text-lg text-[#6a6663] mb-12 max-w-2xl mx-auto">Kami merancang setiap aspek untuk memastikan kenyamanan dan keamanan Anda dan calon buah hati.</p>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="p-8 bg-[#FFFBF5] rounded-lg shadow-md">
+                        <div class="text-4xl mb-4 text-[#A3B18A]">✓</div>
+                        <h4 class="text-xl font-bold mb-2 font-lora">Instruktur Bersertifikasi</h4>
+                        <p class="text-[#6a6663]">Semua instruktur yoga dan terapis spa kami memiliki sertifikasi khusus dalam perawatan prenatal.</p>
+                    </div>
+                     <div class="p-8 bg-[#FFFBF5] rounded-lg shadow-md">
+                        <div class="text-4xl mb-4 text-[#A3B18A]">🌿</div>
+                        <h4 class="text-xl font-bold mb-2 font-lora">Bahan Alami & Tradisional</h4>
+                        <p class="text-[#6a6663]">Kami hanya menggunakan minyak esensial dan ramuan herbal lokal yang aman untuk ibu hamil.</p>
+                    </div>
+                     <div class="p-8 bg-[#FFFBF5] rounded-lg shadow-md">
+                        <div class="text-4xl mb-4 text-[#A3B18A]">💖</div>
+                        <h4 class="text-xl font-bold mb-2 font-lora">Lingkungan Mendukung</h4>
+                        <p class="text-[#6a6663]">Suasana studio yang tenang, bersih, dan privat untuk memberikan Anda kenyamanan maksimal.</p>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <section id="programs" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-lora">Program Kami</h2>
+                <p class="text-lg text-[#6a6663] mb-12 max-w-2xl mx-auto">Pilih program yang paling sesuai dengan kebutuhan Anda untuk membina ikatan batin dan menemukan kekuatan diri.</p>
+
+                <div class="flex justify-center mb-8 border-b-2 border-[#D4C6B3]">
+                    <button id="tab-yoga" class="program-tab tab-active text-lg font-semibold py-3 px-8 border-b-2 transition-all duration-300">Prenatal Yoga</button>
+                    <button id="tab-spa" class="program-tab tab-inactive text-lg font-semibold py-3 px-8 border-b-2 transition-all duration-300">Prenatal Spa</button>
+                </div>
+
+                <div id="content-yoga" class="program-content text-left">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+        <img src="asset/image/image.png" alt="Prenatal Yoga" class="rounded-lg shadow-lg">
+        <div>
+            <h3 class="text-2xl font-bold mb-4 font-lora">Yoga untuk Keharmonisan Kehamilan</h3>
+            <p class="text-[#6a6663] mb-6">Kelas prenatal yoga kami dirancang untuk meningkatkan fleksibilitas, mengurangi stres, dan mempersiapkan tubuh Anda untuk persalinan. Gerakan yang lembut dan aman dipandu untuk setiap trimester.</p>
+            <ul class="space-y-3 text-[#6a6663]">
+                <li class="flex items-start"><span class="text-[#A3B18A] font-bold mr-3">✓</span> Mengurangi nyeri punggung dan ketidaknyamanan.</li>
+                <li class="flex items-start"><span class="text-[#A3B18A] font-bold mr-3">✓</span> Meningkatkan kualitas tidur dan mood.</li>
+                <li class="flex items-start"><span class="text-[#A3B18A] font-bold mr-3">✓</span> Mempelajari teknik pernapasan untuk relaksasi dan persalinan.</li>
+                <li class="flex items-start"><span class="text-[#A3B18A] font-bold mr-3">✓</span> Terhubung dengan komunitas ibu hamil lainnya.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                <div id="content-spa" class="program-content hidden text-left">
+                     <div class="grid md:grid-cols-2 gap-12 items-center">
+                         <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2070&auto=format&fit=crop" class="rounded-lg shadow-xl w-full h-auto object-cover" alt="Seorang wanita sedang menerima pijatan punggung yang menenangkan di ruang spa.">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 font-lora">Perawatan Spa yang Memanjakan</h3>
+                            <p class="text-[#6a6663] mb-6">Manjakan diri Anda dengan perawatan spa yang dirancang khusus untuk ibu hamil. Terapis kami menggunakan teknik pijat yang aman dan bahan-bahan alami untuk meredakan ketegangan dan menutrisi kulit Anda.</p>
+                             <ul class="space-y-3 text-[#6a6663]">
+                                <li class="flex items-start"><span class="text-[#A3B18A] font-bold mr-3">✓</span> Pijat Prenatal untuk melancarkan sirkulasi dan meredakan pegal.</li>
+                                <li class="flex items-start"><span class="text-[#A3B18A] font-bold mr-3">✓</span> Lulur & Masker Badan dengan bahan alami yang menutrisi.</li>
+                                <li class="flex items-start"><span class="text-[#A3B18A] font-bold mr-3">✓</span> Perawatan Wajah Organik untuk kulit cerah dan sehat.</li>
+                                <li class="flex items-start"><span class="text-[#A3B18A] font-bold mr-3">✓</span> Paket relaksasi lengkap untuk pengalaman yang tak terlupakan.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section id="gallery" class="py-20 bg-[#F6F3EE] overflow-hidden">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 font-lora">Sanktuari Kami</h2>
+    <p class="text-lg text-[#6a6663] mb-12 max-w-2xl mx-auto">
+      Lihatlah lebih dekat suasana tenang dan damai yang menanti Anda di Uma Yoga Bali.
+    </p>
+
+    <!-- Carousel Wrapper -->
+    <div class="relative">
+      <button onclick="scrollGallery(-1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow p-2 rounded-full">
+        &#8592;
+      </button>
+      <div id="galleryWrapper" class="flex overflow-x-hidden scroll-smooth">
+        <!-- Gallery items here -->
+      </div>
+      <button onclick="scrollGallery(1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow p-2 rounded-full">
+        &#8594;
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const images = [
+    { src: "asset/image/yogaa.jpg", alt: "Studio yoga" },
+    { src: "asset/image/spaaa.jpg", alt: "Spa" },
+    { src: "https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2070&auto=format&fit=crop", alt: "Kolam renang" },
+    { src: "asset/image/kolam bunga.png", alt: "Kolam bunga" },
+  ];
+
+  const wrapper = document.getElementById('galleryWrapper');
+
+  // Tambahkan item dan clone (untuk infinity)
+  const galleryItems = [...images, ...images]; // double untuk loop
+  galleryItems.forEach(item => {
+    const div = document.createElement('div');
+    div.className = "min-w-[33.3333%] px-2";
+    div.innerHTML = `
+      <img src="${item.src}" alt="${item.alt}" class="w-full h-60 object-cover rounded-lg transition-transform duration-300 hover:scale-110">
+    `;
+    wrapper.appendChild(div);
+  });
+
+  let index = 0;
+  const visibleItems = 3;
+
+  function scrollGallery(direction) {
+    const totalItems = galleryItems.length;
+    index = (index + direction + totalItems) % totalItems;
+    wrapper.scrollTo({
+      left: index * wrapper.clientWidth / visibleItems,
+      behavior: 'smooth'
+    });
+  }
+
+  // Optional: autoplay
+  // setInterval(() => scrollGallery(1), 4000);
+</script>
+
+
+        <section id="testimonials" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-lora">Apa Kata Mereka</h2>
+                 <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-[#A3B18A]">
+                        <p class="text-[#6a6663] italic mb-6">"Tempat terbaik selama masa kehamilanku! Instrukturnya sangat sabar dan mengerti kebutuhan ibu hamil. Aku merasa jauh lebih rileks dan siap menghadapi persalinan. Sangat merekomendasikan."</p>
+                        <p class="font-bold text-[#4E4A47]">- Amanda S. (Ibu dari satu anak)</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-[#A3B18A]">
+                        <p class="text-[#6a6663] italic mb-6">"The prenatal massage was heavenly. I came here during my babymoon in Bali and it was the highlight of my trip. The place is serene and the therapists are so professional and caring."</p>
+                        <p class="font-bold text-[#4E4A47]">- Chloe T. (Visitor from Australia)</p>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="bg-[#4E4A47] text-[#FFFBF5] py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 text-center md:text-left">
+                <div>
+                    <h4 class="text-xl font-bold mb-4 font-lora">Uma Yoga Bali</h4>
+                    <p class="text-[#D4C6B3]">Oase ketenangan untuk para ibu hamil di jantung Bali.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4 font-lora">Hubungi Kami</h4>
+                    <p class="text-[#D4C6B3]">Jalan Raya No. 17,Sinagaraja, Buleleng, Bali, Indonesia.</p>
+                    <p class="text-[#D4C6B3] mt-2">Email: <a href="mailto:sinarcod@gmail.com" class="hover:text-white">info@umayogabali.com</a></p>
+                    <p class="text-[#D4C6B3] mt-1">WhatsApp: <a href="https://wa.me/+62 813-3738-2746" class="hover:text-white">+62 812 3456 7890</a></p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4 font-lora">Ikuti Kami</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="text-[#D4C6B3] hover:text-white">Instagram</a>
+                        <a href="#" class="text-[#D4C6B3] hover:text-white">Facebook</a>
+                    </div>
+                     <a href="#header" class="mt-6 inline-block bg-[#A3B18A] text-white px-8 py-3 rounded-full font-bold hover:bg-[#8A9A5B] transition-colors duration-300">Booking Sekarang</a>
+                </div>
+            </div>
+            <div class="border-t border-[#6a6663] mt-12 pt-8 text-center text-sm text-[#D4C6B3]">
+                <p>&copy; 2025 Uma Yoga Bali. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <div id="gallery-modal" class="modal fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none">
+        <div id="modal-content" class="modal-content bg-white p-2 rounded-lg max-w-4xl max-h-full w-full transform scale-95">
+            <img id="modal-image" src="" alt="Detail gambar galeri" class="w-full h-full object-contain max-h-[85vh]">
+        </div>
+        <button id="modal-close" class="absolute top-4 right-6 text-white text-4xl font-bold">&times;</button>
+    </div>
+<script>
+  const music = document.getElementById("music");
+  const playIcon = document.getElementById("play-icon");
+  const pauseIcon = document.getElementById("pause-icon");
+  const button = document.getElementById("music-button");
+
+  button.addEventListener("click", () => {
+    if (music.paused) {
+      music.play().catch(error => {
+        console.log("Audio play error:", error);
+      });
+      playIcon.classList.add("hidden");
+      pauseIcon.classList.remove("hidden");
+    } else {
+      music.pause();
+      pauseIcon.classList.add("hidden");
+      playIcon.classList.remove("hidden");
+    }
+  });
+</script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const yogaTab = document.getElementById('tab-yoga');
+            const spaTab = document.getElementById('tab-spa');
+            const yogaContent = document.getElementById('content-yoga');
+            const spaContent = document.getElementById('content-spa');
+            
+            function switchTabs(activeTab, inactiveTab, activeContent, inactiveContent) {
+                activeTab.classList.remove('tab-inactive');
+                activeTab.classList.add('tab-active');
+                inactiveTab.classList.remove('tab-active');
+                inactiveTab.classList.add('tab-inactive');
+                activeContent.classList.remove('hidden');
+                inactiveContent.classList.add('hidden');
+            }
+
+            yogaTab.addEventListener('click', () => {
+                switchTabs(yogaTab, spaTab, yogaContent, spaContent);
+            });
+            spaTab.addEventListener('click', () => {
+                switchTabs(spaTab, yogaTab, spaContent, yogaContent);
+            });
+
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const modal = document.getElementById('gallery-modal');
+            const modalContent = document.getElementById('modal-content');
+            const modalImage = document.getElementById('modal-image');
+            const modalClose = document.getElementById('modal-close');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const imgSrc = item.querySelector('img').src;
+                    modalImage.src = imgSrc;
+                    modal.classList.remove('opacity-0', 'pointer-events-none');
+                    modalContent.classList.remove('scale-95');
+                });
+            });
+
+            function closeModal() {
+                 modal.classList.add('opacity-0');
+                 modalContent.classList.add('scale-95');
+                 setTimeout(() => {
+                    modal.classList.add('pointer-events-none');
+                 }, 300);
+            }
+
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section, footer');
+            
+            function onScroll() {
+                let currentSection = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 100) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active-nav');
+                    if(link.getAttribute('href').substring(1) === currentSection) {
+                        link.classList.add('active-nav');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', onScroll);
+        });
+    </script>
+</body>
+</html>
