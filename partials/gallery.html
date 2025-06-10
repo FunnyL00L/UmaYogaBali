@@ -1,0 +1,20 @@
+ 
+<section id="gallery" class="py-20 bg-[#F6F3EE] overflow-hidden min-h-screen flex items-center justify-center">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 font-lora">Sanktuari Kami</h2>
+        <p class="text-lg text-[#6a6663] mb-12 max-w-2xl mx-auto">
+            Lihatlah lebih dekat suasana tenang dan damai yang menanti Anda di Uma Yoga Bali.
+        </p>
+
+        <div class="relative">
+            <button onclick="scrollGallery(-1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow p-2 rounded-full">
+                &#8592;
+            </button>
+            <div id="galleryWrapper" class="flex overflow-x-hidden scroll-smooth">
+                </div>
+            <button onclick="scrollGallery(1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow p-2 rounded-full">
+                &#8594;
+            </button>
+        </div>
+    </div>
+</section>

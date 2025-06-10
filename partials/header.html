@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Yoga Bali</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        #music-controls {
+            background-color: #fefdf9;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        #vinyl {
+            transition: transform 0.5s linear;
+        }
+        .spinning {
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        #volume-level {
+            transition: height 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<header id="header" class="bg-[#fefdf9] backdrop-blur-md fixed top-0 w-full z-50 shadow-sm transition-all duration-300">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="asset/image/logo01.png" alt="Logo Uma Yoga Bali" class="h-12 w-auto">
+            </a>
+
+            <nav class="flex-grow flex items-center justify-center space-x-8">
+                <a href="#home" class="nav-link hover:text-[#8A9A5B] transition-colors duration-300">Home</a>
+                <a href="#philosophy" class="nav-link hover:text-[#8A9A5B] transition-colors duration-300">Filosofi</a>
+                <a href="#programs" class="nav-link hover:text-[#8A9A5B] transition-colors duration-300">Program</a>
+                <a href="#pricing" class="nav-link hover:text-[#8A9A5B] transition-colors duration-300">Daftar Harga</a>
+                <a href="#gallery" class="nav-link hover:text-[#8A9A5B] transition-colors duration-300">Galeri</a>
+            </nav>
+
+            <div id="music-controls" class="flex items-center space-x-3">
+                <div class="relative w-10 h-10">
+                    <img id="vinyl" src="asset/image/logo01.png" alt="Vinyl" class="w-full h-full rounded-full transition-transform duration-500 ease-linear">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-1.5 h-1.5 bg-black rounded-full"></div>
+                    </div>
+                </div>
+
+                <button id="play-pause-button" class="text-[#8A9A5B] hover:text-[#4E4A47] transition-colors duration-300 focus:outline-none" title="Putar/Jeda Musik">
+                    <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-6.518-3.759A1 1 0 007 8.118v7.764a1 1 0 001.234.97l6.518-1.88a1 1 0 00.748-.97v-1.764a1 1 0 00-.748-.97z" />
+                    </svg>
+                    <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6" />
+                    </svg>
+                </button>
+                     <a href="#login" class="text-[#8A9A5B] hover:text-[#4E4A47] transition-colors duration-300" title="Login">
+                <img src="\asset\image\login.jpg" alt="Login Icon" class="h-6 w-6">
+            </a>
+
+              
+            </div>
+
+            <!-- Icon Login -->
+       
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+        <a href="#home" class="block nav-link hover:text-[#8A9A5B] transition-colors duration-300">Home</a>
+        <a href="#philosophy" class="block nav-link hover:text-[#8A9A5B] transition-colors duration-300">Filosofi</a>
+        <a href="#programs" class="block nav-link hover:text-[#8A9A5B] transition-colors duration-300">Program</a>
+        <a href="#pricing" class="block nav-link hover:text-[#8A9A5B] transition-colors duration-300">Daftar Harga</a>
+        <a href="#gallery" class="block nav-link hover:text-[#8A9A5B] transition-colors duration-300">Galeri</a>
+        <a href="#schedule" class="block nav-link hover:text-[#8A9A5B] transition-colors duration-300">Jadwal</a>
+        <a href="#contact" class="block bg-[#A3B18A] text-white text-center mt-2 px-6 py-2 rounded-full hover:bg-[#8A9A5B] transition-colors duration-300 font-semibold">Booking</a>
+    </div>
+</header>
+
+<!-- Login Section -->
+<!-- <div id="login" class="container mx-auto px-6 py-8">
+    <h2 class="text-center text-2xl font-semibold mb-4">Login</h2>
+    <form class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <div class="mb-4">
+            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+            <input type="email" id="email" name="email" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-[#8A9A5B] focus:border-[#8A9A5B] p-2" placeholder="example@domain.com">
+        </div>
+        <div class="mb-4">
+            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+            <input type="password" id="password" name="password" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-[#8A9A5B] focus:border-[#8A9A5B] p-2" placeholder="********">
+        </div>
+        <button type="submit" class="w-full bg-[#8A9A5B] text-white py-2 rounded-md hover:bg-[#4E4A47] transition-colors duration-300">Login</button>
+    </form>
+</div> -->
+
+<script>
+    // JavaScript for Play/Pause functionality
+    const playPauseButton = document.getElementById('play-pause-button');
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
+    const vinyl = document.getElementById('vinyl');
+
+
+    let isPlaying = false;
+
+    playPauseButton.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        playIcon.classList.toggle('hidden', isPlaying);
+        pauseIcon.classList.toggle('hidden', !isPlaying);
+        
+        // Toggle spinning class for vinyl
+        if (isPlaying) {
+            vinyl.classList.add('spinning');
+            // Add your audio play logic here
+        } else {
+            vinyl.classList.remove('spinning');
+            // Add your audio pause logic here
+        }
+    });
+
+    
+</script>
+
+</body>
+</html>
