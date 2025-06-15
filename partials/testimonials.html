@@ -1,16 +1,52 @@
- 
-<section id="testimonials" class="py-20 md:py-32 min-h-screen flex items-center justify-center">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-lora">Apa Kata Mereka</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-[#A3B18A]">
-                <p class="text-[#6a6663] italic mb-6">"Tempat terbaik selama masa kehamilanku! Instrukturnya sangat sabar dan mengerti kebutuhan ibu hamil. Aku merasa jauh lebih rileks dan siap menghadapi persalinan. Sangat merekomendasikan."</p>
-                <p class="font-bold text-[#4E4A47]">- Amanda S. (Ibu dari satu anak)</p>
-            </div>
-            <div class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-[#A3B18A]">
-                <p class="text-[#6a6663] italic mb-6">"The prenatal massage was heavenly. I came here during my babymoon in Bali and it was the highlight of my trip. The place is serene and the therapists are so professional and caring."</p>
-                <p class="font-bold text-[#4E4A47]">- Chloe T. (Visitor from Australia)</p>
-            </div>
+<section id="testimonials" class="py-20 md:py-32 bg-[#FFFBF5] overflow-hidden">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-lora">Apa Kata Mereka</h2>
+
+    <div class="relative w-full overflow-hidden">
+      <div class="flex animate-scroll whitespace-nowrap gap-6">
+        <!-- Testimonial Card -->
+        <div class="min-w-[300px] max-w-[300px] bg-white p-6 rounded-xl shadow-md border border-[#D4C6B3] flex-shrink-0">
+          <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="profile" class="w-14 h-14 rounded-full mx-auto mb-3">
+          <p class="text-sm text-[#6a6663] italic mb-3 line-clamp-4">"Tempat terbaik selama masa kehamilanku! Instruktur sangat sabar dan mengerti kebutuhan ibu hamil."</p>
+          <p class="text-center font-semibold text-[#4E4A47]">Amanda S.</p>
+          <div class="flex justify-center mt-2 text-yellow-400">
+            ★★★★★
+          </div>
         </div>
+
+        <!-- Card 2 -->
+        <div class="min-w-[300px] max-w-[300px] bg-white p-6 rounded-xl shadow-md border border-[#D4C6B3] flex-shrink-0">
+          <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="profile" class="w-14 h-14 rounded-full mx-auto mb-3">
+          <p class="text-sm text-[#6a6663] italic mb-3 line-clamp-4">"Prenatal massage-nya luar biasa. Sangat menenangkan, cocok untuk relaksasi saat babymoon di Bali."</p>
+          <p class="text-center font-semibold text-[#4E4A47]">Chloe T.</p>
+          <div class="flex justify-center mt-2 text-yellow-400">
+            ★★★★★
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="min-w-[300px] max-w-[300px] bg-white p-6 rounded-xl shadow-md border border-[#D4C6B3] flex-shrink-0">
+          <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="profile" class="w-14 h-14 rounded-full mx-auto mb-3">
+          <p class="text-sm text-[#6a6663] italic mb-3 line-clamp-4">"Istriku lebih rileks dan tidak stres berkat layanan yoga Uma. Pelayanannya sangat personal."</p>
+          <p class="text-center font-semibold text-[#4E4A47]">Damar W.</p>
+          <div class="flex justify-center mt-2 text-yellow-400">
+            ★★★★☆
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="min-w-[300px] max-w-[300px] bg-white p-6 rounded-xl shadow-md border border-[#D4C6B3] flex-shrink-0">
+          <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="profile" class="w-14 h-14 rounded-full mx-auto mb-3">
+          <p class="text-sm text-[#6a6663] italic mb-3 line-clamp-4">"Tenang, bersih, dan nyaman. Sesi pijatnya sangat membantu tubuhku yang kelelahan."</p>
+          <p class="text-center font-semibold text-[#4E4A47]">Putri A.</p>
+          <div class="flex justify-center mt-2 text-yellow-400">
+            ★★★★★
+          </div>
+        </div>
+
+        <!-- Duplikasi agar loop seamless -->
+        <!-- Ulangi card-card di atas jika ingin animasi tidak tersendat -->
+      </div>
     </div>
+  </div>
 </section>

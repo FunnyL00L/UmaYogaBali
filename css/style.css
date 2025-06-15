@@ -1,33 +1,49 @@
- 
 body {
     font-family: 'Nunito Sans', sans-serif;
     background-color: #FFFBF5;
     color: #4E4A47;
     /* Pastikan body tidak memiliki overflow-y: scroll atau sejenisnya */
 }
+
 h1, h2, h3, .font-lora {
     font-family: 'Lora', serif;
 }
+
 .active-nav {
     color: #8A9A5B;
     font-weight: 600;
 }
+
 .tab-active {
     background-color: #A3B18A;
     color: #FFFBF5;
     border-color: #A3B18A;
 }
+
 .tab-inactive {
     background-color: transparent;
     color: #4E4A47;
     border-color: #D4C6B3;
 }
+
 .modal {
     transition: opacity 0.25s ease;
 }
+
 .modal-content {
     transition: transform 0.25s ease;
 }
+
 html {
     scroll-behavior: smooth; /* Memastikan transisi smooth antar section */
 }
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scrollLeft 40s linear infinite;
+}
+

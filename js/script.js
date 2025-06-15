@@ -115,12 +115,21 @@ const programs = {
 
 
         // --- Data Gambar Galeri ---
-        const galleryImages = [
-            { src: "asset/image/yogaa.jpg", alt: "Studio yoga" },
-            { src: "asset/image/spaaa.jpg", alt: "Spa" },
-            { src: "https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2070&auto=format&fit=crop", alt: "Kolam renang" },
-            { src: "asset/image/kolam bunga.png", alt: "Kolam bunga" },
-        ];
+       const galleryImages = [
+    { src: "asset/image/yogaa.jpg", alt: "Sesi prenatal yoga" },
+    { src: "asset/image/spaaa.jpg", alt: "Ruang perawatan spa" },
+    { src: "asset/image/kolam bunga.png", alt: "Kolam dengan taburan bunga" },
+    { src: "asset/image/area.jpg", alt: "Area outdoor yang asri" },
+    { src: "asset/image/aula.jpg", alt: "Aula atau studio utama" },
+    { src: "asset/image/halam.jpg", alt: "Halaman depan dengan taman" },
+    { src: "asset/image/image.png", alt: "Wanita melakukan yoga" },
+    { src: "asset/image/kori.jpg", alt: "Gerbang Kori khas Bali" },
+    { src: "asset/image/utama.jpg", alt: "Pemandangan utama lokasi" },
+    { src: "asset/image/VCO.png", alt: "Produk Minyak Uma VCO" },
+    { src: "asset/image/airlangga.png", alt: "Detail arsitektur Airlangga" },
+    // Menambahkan gambar dari URL eksternal jika masih diperlukan
+    { src: "https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2070&auto=format&fit=crop", alt: "Kolam renang di malam hari" },
+];
         const galleryWrapper = document.getElementById('galleryWrapper');
 
 
