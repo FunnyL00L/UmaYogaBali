@@ -140,17 +140,17 @@ const programs = {
 
         // --- Fungsionalitas Umum ---
 
-        // Autoplay Musik saat DOM dimuat (mungkin diblokir browser)
-        if (music) { // Pastikan elemen musik ada
-            music.play().catch(error => {
-                console.log("Autoplay musik gagal:", error);
-            });
-            // Tampilkan ikon pause dan sembunyikan ikon play jika autoplay berhasil/dicoba
-            if (playIcon && pauseIcon) {
-                playIcon.classList.add("hidden"); 
-                pauseIcon.classList.remove("hidden"); 
-            }
-        }
+// Autoplay Musik saat DOM dimuat (mungkin diblokir browser)
+if (music) { // Pastikan elemen musik ada
+    music.play().catch(error => {
+        console.log("Autoplay musik gagal:", error);
+    });
+    // Tampilkan ikon pause dan sembunyikan ikon play jika autoplay berhasil/dicoba
+    if (playIcon && pauseIcon) {
+        playIcon.classList.add("hidden"); 
+        pauseIcon.classList.remove("hidden"); 
+    }
+}
 
         // Fungsionalitas Tombol Musik
         if (musicButton && music && playIcon && pauseIcon) { // Pastikan semua elemen ada
