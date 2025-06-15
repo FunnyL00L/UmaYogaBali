@@ -54,8 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const yogaTab = document.getElementById('tab-yoga');
         const spaTab = document.getElementById('tab-spa');
+        const vcoTab = document.getElementById('tab-vco');
         const yogaContent = document.getElementById('content-yoga');
         const spaContent = document.getElementById('content-spa');
+        const vcoContent = document.getElementById('content-vco');
 
         const navLinks = document.querySelectorAll('.nav-link');
         // Ambil semua section utama dan footer setelah semua partials dimuat.
@@ -72,45 +74,44 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalBookingLink = document.getElementById('modal-booking-link');
 
 
-        // --- Data Program (untuk Modal Booking) ---
-        const programs = {
-            'yoga-class': {
-                title: 'Kelas Yoga Prenatal',
-                description: 'Kelas yoga yang dirancang khusus untuk ibu hamil, membantu meningkatkan fleksibilitas, kekuatan, dan ketenangan batin. Setiap sesi berdurasi 60 menit.',
-                features: [
-                    'Sesi dipimpin oleh instruktur bersertifikasi',
-                    'Fokus pada pernapasan dan relaksasi',
-                    'Gerakan aman untuk setiap trimester',
-                    'Lingkungan yang mendukung'
-                ],
-                price: 'IDR 150.000/sesi',
-                whatsappMessage: 'Halo Uma Yoga Bali, saya tertarik dengan program Kelas Yoga Prenatal (IDR 150.000/sesi). Bisakah saya mendapatkan informasi lebih lanjut atau melakukan booking?'
-            },
-            'spa-package': {
-                title: 'Paket Spa Prenatal',
-                description: 'Paket spa mewah yang menenangkan, dirancang untuk meredakan ketegangan dan memanjakan tubuh ibu hamil. Termasuk pijat prenatal, lulur, dan masker tubuh.',
-                features: [
-                    'Pijat prenatal 60 menit',
-                    'Lulur dan masker tubuh alami',
-                    'Perawatan wajah organik',
-                    'Minuman herbal penyegar'
-                ],
-                price: 'IDR 400.000/paket',
-                whatsappMessage: 'Halo Uma Yoga Bali, saya tertarik dengan program Paket Spa Prenatal (IDR 400.000/paket). Bisakah saya mendapatkan informasi lebih lanjut atau melakukan booking?'
-            },
-            'private-yoga': {
-                title: 'Yoga Prenatal Privat',
-                description: 'Sesi yoga personal yang disesuaikan sepenuhnya dengan kebutuhan dan kondisi Anda. Ideal untuk perhatian penuh dari instruktur.',
-                features: [
-                    'Sesi privat 1-on-1 dengan instruktur',
-                    'Program yang disesuaikan personal',
-                    'Fleksibilitas jadwal',
-                    'Fokus pada area yang Anda butuhkan'
-                ],
-                price: 'IDR 250.000/sesi',
-                whatsappMessage: 'Halo Uma Yoga Bali, saya tertarik dengan program Yoga Prenatal Privat (IDR 250.000/sesi). Bisakah saya mendapatkan informasi lebih lanjut atau melakukan booking?'
-            }
-        };
+      // --- Data Program (untuk Modal Booking) - DIPERBARUI ---
+const programs = {
+    'yoga-package': { // Sesuai dengan data-program="yoga-package" di HTML
+        title: 'Booking Uma Prenatal Yoga',
+        description: 'Pilih paket yoga yang paling sesuai untuk Anda. Setiap sesi dirancang khusus untuk memberikan kenyamanan dan kekuatan selama masa kehamilan.',
+        features: [
+            '<strong>Basic Yoga:</strong> Sesi yoga fundamental untuk relaksasi dan peregangan.',
+            '<strong>Premium Yoga:</strong> Sesi yoga lengkap, termasuk bonus gratis 1 botol Minyak Uma VCO.',
+            'Dipandu oleh instruktur bersertifikasi.',
+            'Gerakan aman dan disesuaikan untuk setiap trimester.'
+        ],
+        price: 'Mulai dari IDR 170.000',
+        whatsappMessage: 'Halo Uma Yoga Bali, saya tertarik dengan paket Uma Prenatal Yoga. Bisakah saya mendapatkan informasi lebih lanjut mengenai paket Basic dan Premium?'
+    },
+    'spa-package': { // Sesuai dengan data-program="spa-package" di HTML
+        title: 'Booking Uma Prenatal Spa',
+        description: 'Manjakan diri Anda dengan perawatan spa yang menenangkan dan aman untuk ibu hamil. Pilih dari paket Classic atau Modern kami.',
+        features: [
+            '<strong>Classic Spa:</strong> Perawatan spa esensial untuk meredakan ketegangan.',
+            '<strong>Modern Spa:</strong> Pengalaman spa premium, termasuk bonus gratis 1 botol Minyak Uma VCO.',
+            'Menggunakan bahan-bahan alami dan tradisional Bali.',
+            'Terapis profesional yang berpengalaman dalam perawatan prenatal.'
+        ],
+        price: 'Mulai dari IDR 350.000',
+        whatsappMessage: 'Halo Uma Yoga Bali, saya tertarik dengan paket Uma Prenatal Spa. Bisakah saya mendapatkan informasi lebih lanjut mengenai paket Classic dan Modern?'
+    },
+    'bundle-package': { // Sesuai dengan data-program="bundle-package" di HTML
+        title: 'Booking Bundle Package',
+        description: 'Dapatkan pengalaman lengkap dengan paket kombinasi Yoga dan Spa kami untuk relaksasi maksimal.',
+        features: [
+            '<strong>Gold (Yoga + Spa):</strong> Kombinasi sesi yoga dan spa untuk kebugaran dan ketenangan menyeluruh.',
+            '<strong>Diamond (Yoga + Spa + Free VCO):</strong> Paket termewah dengan sesi yoga, spa, dan bonus gratis 1 botol Minyak Uma VCO.',
+            'Nilai terbaik untuk pengalaman prenatal yang komprehensif.'
+        ],
+        price: 'Mulai dari IDR 500.000',
+        whatsappMessage: 'Halo Uma Yoga Bali, saya tertarik dengan Bundle Package. Bisakah saya mendapatkan informasi lebih lanjut mengenai paket Gold dan Diamond?'
+    }
+};
 
 
         // --- Data Gambar Galeri ---
@@ -166,24 +167,58 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Fungsionalitas Tabs Program (Yoga/Spa)
-        if (yogaTab && spaTab && yogaContent && spaContent) { // Pastikan semua elemen tab ada
-            function switchTabs(activeTab, inactiveTab, activeContent, inactiveContent) {
-                activeTab.classList.remove('tab-inactive');
-                activeTab.classList.add('tab-active');
-                inactiveTab.classList.remove('tab-active');
-                inactiveTab.classList.add('tab-inactive');
-                activeContent.classList.remove('hidden');
-                inactiveContent.classList.add('hidden');
-            }
+ if (yogaTab && spaTab && vcoTab && yogaContent && spaContent && vcoContent) {
 
-            yogaTab.addEventListener('click', () => {
-                switchTabs(yogaTab, spaTab, yogaContent, spaContent);
-            });
-            spaTab.addEventListener('click', () => {
-                switchTabs(spaTab, yogaTab, spaContent, yogaContent);
-            });
-        }
+    /**
+     * Fungsi untuk mengganti tab yang aktif beserta kontennya.
+     * @param {HTMLElement} activeTab - Tombol tab yang akan diaktifkan.
+     * @param {HTMLElement} activeContent - Konten yang akan ditampilkan.
+     * @param {Array<HTMLElement>} inactiveTabs - Array tombol tab lain yang akan dinonaktifkan.
+     * @param {Array<HTMLElement>} inactiveContents - Array konten lain yang akan disembunyikan.
+     */
+    function switchTabs(activeTab, activeContent, inactiveTabs, inactiveContents) {
+        // Aktifkan tab dan konten yang dipilih
+        activeTab.classList.replace('tab-inactive', 'tab-active');
+        activeContent.classList.remove('hidden');
+
+        // Nonaktifkan semua tab lainnya
+        inactiveTabs.forEach(tab => tab.classList.replace('tab-active', 'tab-inactive'));
+        
+        // Sembunyikan semua konten lainnya
+        inactiveContents.forEach(content => content.classList.add('hidden'));
+    }
+
+    // Tambahkan event listener untuk Tab Yoga
+    yogaTab.addEventListener('click', () => {
+        switchTabs(
+            yogaTab, 
+            yogaContent, 
+            [spaTab, vcoTab], 
+            [spaContent, vcoContent]
+        );
+    });
+
+    // Tambahkan event listener untuk Tab Spa
+    spaTab.addEventListener('click', () => {
+        switchTabs(
+            spaTab, 
+            spaContent, 
+            [yogaTab, vcoTab], 
+            [yogaContent, vcoContent]
+        );
+    });
+
+    // Tambahkan event listener untuk Tab VCO
+    vcoTab.addEventListener('click', () => {
+        switchTabs(
+            vcoTab, 
+            vcoContent, 
+            [yogaTab, spaTab], 
+            [yogaContent, spaContent]
+        );
+    });
+
+}
 
         // Fungsionalitas Galeri Carousel
         if (galleryWrapper) { // Pastikan elemen galeri ada
