@@ -1,30 +1,94 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uma Yoga Bali - Prenatal Yoga & Spa</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Uma Yoga Bali - Prenatal Yoga & Spa</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet">
+
+  <!-- Optional Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="antialiased">
-   
-    <div id="header-placeholder"></div>
 
-    <main id="main-content">
-        </main>
+<body class="antialiased font-['Nunito_Sans'] overflow-hidden">
 
-    <div id="footer-placeholder"></div>
+  <!-- Loading Screen -->
+  <div id="loading-modal" class="fixed inset-0 bg-white flex justify-center items-center z-[9999]">
+    <div class="flex flex-col items-center">
+      <div class="w-16 h-16 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+      <p class="mt-6 text-gray-700 text-lg font-semibold">Memuat Uma Yoga Bali...</p>
+    </div>
+  </div>
 
-    <div id="modals-placeholder"></div>
+  <!-- Welcome Modal -->
+  <div id="welcome-modal" class="fixed inset-0 bg-gray-900 bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-[999] opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="text-center text-white p-4">
+      <h2 class="text-4xl lg:text-5xl font-['Lora'] mb-4">Selamat Datang di Uma Yoga Bali</h2>
+      <p class="mb-8 text-lg lg:text-xl max-w-2xl mx-auto">Pengalaman yoga prenatal dan spa yang menenangkan jiwa di Buleleng, Bali.</p>
+      <button id="enter-website-btn" class="bg-white text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105">
+        Masuk & Rasakan Ketenangan
+      </button>
+    </div>
+  </div>
 
-    <audio id="music" src="asset/music/Bali World Music, Gus Teja, Morning Happiness - Gus Teja.mp3" loop></audio>
-    <source src="asset/music/Bali World Music, Gus Teja, Hero - Gus Teja.mp3" type="audio/mpeg">
+  <!-- Konten Website -->
+  <div id="header-placeholder"></div>
 
-    <script src="js/script.js"></script>
+  <main id="main-content">
+    <!-- Konten utama akan muncul di sini -->
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <div id="modals-placeholder"></div>
+
+  <!-- Musik -->
+  <audio id="music" loop>
+    <source src="asset/music/Bali World Music, Gus Teja, Morning Happiness - Gus Teja.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung elemen audio.
+  </audio>
+
+  <!-- Script -->
+  <script>
+    // Setelah halaman selesai dimuat
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        // Sembunyikan loading
+        document.getElementById("loading-modal").style.display = "none";
+
+        // Tampilkan welcome modal
+        const welcomeModal = document.getElementById("welcome-modal");
+        welcomeModal.classList.remove("opacity-0", "pointer-events-none");
+        welcomeModal.classList.add("opacity-100");
+      }, 3000);
+    });
+
+    // Saat tombol masuk diklik
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("enter-website-btn");
+      const audio = document.getElementById("music");
+
+      btn.addEventListener("click", () => {
+        const modal = document.getElementById("welcome-modal");
+        modal.style.display = "none";
+        document.body.classList.remove("overflow-hidden");
+
+        // Putar musik jika diizinkan
+        audio.play().catch(() => {
+          console.warn("Autoplay diblokir. Pengguna perlu interaksi manual.");
+        });
+      });
+    });
+  </script>
+
+  <!-- Optional: script.js tambahan -->
+  <script src="js/script.js"></script>
+
 </body>
 </html>
